@@ -5,7 +5,12 @@ schoolproject
 ## folder structure
 
 ### POC
-folder for our Proof Of Concept
+folder for our Proof Of Concept projects
+
+#### SpatialOS Maze
+
+#### non-SpatialOS Maze
+
 
 ### tests
 used for test projects (if any), each in its own subfolder
