@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AssemblyConfig:
     ProjectName: unity_gdk
-    AssemblyName: myassembly
+    AssemblyName: unity_gdk_1125_1940
     ShouldForceUpload: 0
   DeploymentConfigs:
   - ProjectName: unity_gdk

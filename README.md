@@ -3,6 +3,7 @@
 schoolproject
 
 ## folder structure
+
 ### POC
 folder for our Proof Of Concept
 
