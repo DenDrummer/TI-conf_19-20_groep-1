@@ -11,6 +11,5 @@ folder for our Proof Of Concept projects
 
 #### non-SpatialOS Maze
 
-
 ### tests
 used for test projects (if any), each in its own subfolder
