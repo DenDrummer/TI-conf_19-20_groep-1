@@ -1,0 +1,11 @@
+{
+	"name": "spatialos_maze",
+	"project_version": "0.0.0",
+	"sdk_version": "14.0.1":
+	"dependencies": [
+		{
+			"name": "standard_library",
+			"version": "14.0.1"
+		}
+	]
+}
