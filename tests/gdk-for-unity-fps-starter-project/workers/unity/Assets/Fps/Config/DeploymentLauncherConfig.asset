@@ -14,22 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AssemblyConfig:
     ProjectName: unity_gdk
-    AssemblyName: unity_gdk_1125_1940
+    AssemblyName: unity_gdk_1130_1756
     ShouldForceUpload: 0
   DeploymentConfigs:
   - ProjectName: unity_gdk
-    AssemblyName: myassembly
+    AssemblyName: unity_gdk_1130_1756
     Deployment:
       Name: my_deployment
       SnapshotPath: snapshots/cloud.snapshot
-      LaunchJson: cloud_launch_large.json
+      LaunchJson: cloud_launch_small.json
       Region: 1
       Tags:
       - dev_login
     SimulatedPlayerDeploymentConfigs:
     - Name: my_deployment_sim1
       SnapshotPath: 
-      LaunchJson: cloud_launch_large_sim_players.json
+      LaunchJson: cloud_launch_small_sim_players.json
+      Region: 1
+      Tags: []
+      TargetDeploymentName: my_deployment
+      FlagPrefix: fps
+      WorkerType: SimulatedPlayerCoordinator
+      WorkerTypeId: 1
+    - Name: my_deployment_sim2
+      SnapshotPath: 
+      LaunchJson: cloud_launch_small_sim_players.json
       Region: 1
       Tags: []
       TargetDeploymentName: my_deployment
