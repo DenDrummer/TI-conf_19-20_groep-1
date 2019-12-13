@@ -50,7 +50,7 @@ static public class InputManager : MonoBehaviour
         }
     }
 
-    static private void SetPhaseS
+    static private void SetPhaseS()
     {
         if (LastPhaseHappend != PhaseS)
             {
@@ -59,7 +59,7 @@ static public class InputManager : MonoBehaviour
             }
         LastPhaseHappend = PhaseS;
     }
-    static private void SetPhaseM
+    static private void SetPhaseM()
     {
         if (LastPhaseHappend != PhaseM)
         {
@@ -67,7 +67,7 @@ static public class InputManager : MonoBehaviour
         }
         LastPhaseHappend = PhaseM;
     }
-    static private void SetPhaseE
+    static private void SetPhaseE()
     {
         if (LastPhaseHappend != PhaseE)
         {
