@@ -24,34 +24,22 @@ static public class InputManager : MonoBehaviour
             switch (currentTouch.phase)
             {
                 case TouchPhase.Began:
-                    if (LastPhaseHappend != PhaseS)
-                    {
-                        SCount++;
-                        StartTouchTime = Time.realtimeSinceStartup;
-                    }
-                    LastPhaseHappend = PhaseS;
+                    SetPhaseS();
                     break;
 
                 case TouchPhase.Moved:
-                    if (LastPhaseHappend != PhaseM)
-                    {
-                        MCount++;
-                    }
-                    LastPhaseHappend = PhaseM;
+                    SetPhaseM();
                     break;
 
                 case TouchPhase.Ended:
-                    if (LastPhaseHappend != PhaseE)
-                    {
-                        ECount++;
-                        float EndTouchTime = Time.realtimeSinceStartup; // Time.realtimeSinceStartup at end of touch
-                        TouchTime = EndTouchTime - StartTouchTime;
-                    }
-                    LastPhaseHappend = PhaseE;
+                    SetPhaseE();
                     break;
+
                 default:
                     throw new InvalidOperationException("Unexpected value LastPhaseHappened = " + LastPhaseHappend);
+                    break;
             }
+            
             if (SCount == ECount && ECount != MCount && TouchTime < 1)
                 // TouchTime for a tap can be further defined
             {
@@ -60,5 +48,33 @@ static public class InputManager : MonoBehaviour
                 return true;
             }
         }
+    }
+
+    private void SetPhaseS
+    {
+        if (LastPhaseHappend != PhaseS)
+            {
+                SCount++;
+                StartTouchTime = Time.realtimeSinceStartup;
+            }
+        LastPhaseHappend = PhaseS;
+    }
+    private void SetPhaseM
+    {
+        if (LastPhaseHappend != PhaseM)
+        {
+            MCount++;
+        }
+        LastPhaseHappend = PhaseM;
+    }
+    private void SetPhaseE
+    {
+        if (LastPhaseHappend != PhaseE)
+        {
+            ECount++;
+            float EndTouchTime = Time.realtimeSinceStartup; // Time.realtimeSinceStartup at end of touch
+            TouchTime = EndTouchTime - StartTouchTime;
+        }
+        LastPhaseHappend = PhaseE;
     }
 }
