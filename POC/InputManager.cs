@@ -36,7 +36,7 @@ static public class InputManager : MonoBehaviour
                     break;
 
                 default:
-                    throw new InvalidOperationException("Unexpected value LastPhaseHappened = " + LastPhaseHappend);
+                    Console.Log("InvalidOperation: Unexpected value LastPhaseHappened = " + LastPhaseHappend);
                     break;
             }
 
