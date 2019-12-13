@@ -37,14 +37,29 @@ public class MoveRequestHandler : MonoBehaviour
                 shape = hit.GameObject
             }
         }
+        else
+        {
+            switch (touchCount)
+            {
+                case 1:
+                    TouchOne();
+                break;
 
-        else if(touchCount == 1)
+                case 2:
+                default:
+                    TouchMore();
+                break;
+            }
+        }
+    }
+
+        private void TouchOne()
         {
             shape.transform.position += currentTouch.deltaPosition;
             _commandSender.SendMoveCommand(_entityId, new MoveRequest());
         }
 
-        else if(touchCount == 2)
+        private void TouchMore()
         {
             Vector3 LastFingerDistance = FingerDistance;
             Vector3 LastFingerAngle = FingerAngle;
@@ -75,5 +90,4 @@ public class MoveRequestHandler : MonoBehaviour
             shape.transform.scale = FingerDistanceDelta * ScaleModifier;
             shape.transform.rotation = FingerAngleDelta * RotationModifier;
         }
-    }
 }
