@@ -3,14 +3,21 @@ using UnityEngine;
 static public class InputManager : MonoBehaviour
 {
 
-    public Vector2 touchPos;
+    private Vector2 _touchPos;
+    public Vector2 touchPost
+    {
+        get {return _touchPos;}
+        set {_touchPos = value;}
+    }
     int SCount; // Count of started touches
     int MCount; // Count of ended touches
     int ECount; // Count of moved touches
-    int LastPhaseHappend; // 1 = S, 2 = M, 3 = E
+    int LastPhaseHappend;
+    const int PhaseS = 1;
+    const int PhaseM = 2;
+    const int PhaseE = 3;
     float TouchTime; // Time elapsed between touch beginning and ending
     float StartTouchTime; // Time.realtimeSinceStartup at start of touch
-    float EndTouchTime; // Time.realtimeSinceStartup at end of touch
 
     public bool Tap()
     {
@@ -21,37 +28,38 @@ static public class InputManager : MonoBehaviour
             switch (currentTouch.phase)
             {
                 case TouchPhase.Began:
-                    if (LastPhaseHappend != 1)
+                    if (LastPhaseHappend != PhaseS)
                     {
                         SCount++;
                         StartTouchTime = Time.realtimeSinceStartup;
                     }
-                    LastPhaseHappend = 1;
+                    LastPhaseHappend = PhaseS;
                     break;
 
                 case TouchPhase.Moved:
-                    if (LastPhaseHappend != 2)
+                    if (LastPhaseHappend != PhaseM)
                     {
                         MCount++;
                     }
-                    LastPhaseHappend = 2;
+                    LastPhaseHappend = PhaseM;
                     break;
 
                 case TouchPhase.Ended:
-                    if (LastPhaseHappend != 3)
+                    if (LastPhaseHappend != PhaseE)
                     {
                         ECount++;
-                        EndTouchTime = Time.realtimeSinceStartup;
+                        float EndTouchTime = Time.realtimeSinceStartup; // Time.realtimeSinceStartup at end of touch
                         TouchTime = EndTouchTime - StartTouchTime;
                     }
-                    LastPhaseHappend = 3;
+                    LastPhaseHappend = PhaseE;
                     break;
+                default:
+                    throw new InvalidOperationException("Unexpected value LastPhaseHappened = " + LastPhaseHappend);
             }
             if (SCount == ECount && ECount != MCount && TouchTime < 1)
                 // TouchTime for a tap can be further defined
             {
-                //Tap has happened;
-                touchPos = currentTouch.position;
+                touchPos = currentTouch.position; //Tap has happened;
                 MCount++;
                 return true;
             }
