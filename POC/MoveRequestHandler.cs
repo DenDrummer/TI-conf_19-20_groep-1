@@ -16,7 +16,7 @@ public class MoveRequestHandler : MonoBehaviour
     private void Update()
     {
         int touchCount = Input.touchCount;
-        if(touchCount = 1 && InputManager.Tap())
+        if(touchCount == 1 && InputManager.Tap())
         {
             var ray = Camera.main.ScreenPointToRay(InputManager.touchPos.x, InputManager.touchPos.y, 0f);
 
@@ -29,7 +29,7 @@ public class MoveRequestHandler : MonoBehaviour
                 shape = hit.GameObject
             }
         }
-        else if(touchCount = 1)
+        else if(touchCount == 1)
         {
             shape.transform.position += currentTouch.deltaPosition;
             _commandSender.SendMoveCommand(_entityId, new MoveRequest());

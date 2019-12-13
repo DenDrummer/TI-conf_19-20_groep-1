@@ -3,12 +3,8 @@ using UnityEngine;
 static public class InputManager : MonoBehaviour
 {
 
-    private Vector2 _touchPos;
-    public Vector2 touchPost
-    {
-        get {return _touchPos;}
-        set {_touchPos = value;}
-    }
+
+    public Vector2 TouchPost { get; set; }
     int SCount; // Count of started touches
     int MCount; // Count of ended touches
     int ECount; // Count of moved touches
@@ -59,7 +55,7 @@ static public class InputManager : MonoBehaviour
             if (SCount == ECount && ECount != MCount && TouchTime < 1)
                 // TouchTime for a tap can be further defined
             {
-                touchPos = currentTouch.position; //Tap has happened;
+                touchPos = currentTouch.position; //Tap has happened
                 MCount++;
                 return true;
             }
