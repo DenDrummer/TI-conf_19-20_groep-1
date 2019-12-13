@@ -39,7 +39,7 @@ static public class InputManager : MonoBehaviour
                     throw new InvalidOperationException("Unexpected value LastPhaseHappened = " + LastPhaseHappend);
                     break;
             }
-            
+
             if (SCount == ECount && ECount != MCount && TouchTime < 1)
                 // TouchTime for a tap can be further defined
             {
@@ -50,7 +50,7 @@ static public class InputManager : MonoBehaviour
         }
     }
 
-    private void SetPhaseS
+    static private void SetPhaseS
     {
         if (LastPhaseHappend != PhaseS)
             {
@@ -59,7 +59,7 @@ static public class InputManager : MonoBehaviour
             }
         LastPhaseHappend = PhaseS;
     }
-    private void SetPhaseM
+    static private void SetPhaseM
     {
         if (LastPhaseHappend != PhaseM)
         {
@@ -67,7 +67,7 @@ static public class InputManager : MonoBehaviour
         }
         LastPhaseHappend = PhaseM;
     }
-    private void SetPhaseE
+    static private void SetPhaseE
     {
         if (LastPhaseHappend != PhaseE)
         {
