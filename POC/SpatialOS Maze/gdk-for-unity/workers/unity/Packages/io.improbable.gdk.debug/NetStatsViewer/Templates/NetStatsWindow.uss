@@ -1,0 +1,39 @@
+.world-selector {
+    height: 15px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.header {
+    flex-direction: row;
+    position: relative;
+}
+
+.tab-hidden {
+    display: none;
+}
+
+.tab {
+    flex-grow: 1;
+}
+
+.list-view {
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.header-column {
+    height: 30px;
+    flex-direction: row;
+    min-width: 100px;
+    flex-grow: 1;
+}
+
+.header-column-name {
+    min-width: 160px;
+}
+
+.tab-selector-container {
+    flex-direction: row;
+    flex-shrink: 0;
+}

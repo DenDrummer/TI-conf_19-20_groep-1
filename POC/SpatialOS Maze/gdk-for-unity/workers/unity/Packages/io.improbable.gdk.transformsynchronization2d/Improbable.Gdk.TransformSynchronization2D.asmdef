@@ -1,0 +1,17 @@
+{
+    "name": "Improbable.Gdk.TransformSynchronization2D",
+    "references": [
+        "Improbable.Gdk.Core",
+        "Improbable.Gdk.Generated",
+        "Unity.Entities",
+        "Improbable.Gdk.TransformSynchronization"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

@@ -1,0 +1,5 @@
+**/.idea/
+**/[Oo]bj/
+**/[Bb]in/
+
+.CodeGenT4/

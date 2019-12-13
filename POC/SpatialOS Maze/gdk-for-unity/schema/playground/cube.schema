@@ -1,0 +1,7 @@
+package playground;
+import "playground/shared.schema";
+
+component CubeTargetVelocity {
+    id = 12008;
+    playground.Vector3f target_velocity = 1;
+}

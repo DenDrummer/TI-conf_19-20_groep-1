@@ -1,0 +1,20 @@
+{
+    "name": "SpatialOS_POC.Editor",
+    "references": [
+        "SpatialOS_POC",
+        "Improbable.Gdk.BuildSystem",
+        "Improbable.Gdk.Core",
+        "Improbable.Gdk.Generated",
+        "Unity.Entities"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

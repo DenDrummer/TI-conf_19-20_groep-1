@@ -1,0 +1,20 @@
+{
+    "name": "Improbable.Gdk.TestUtils.Editor.Tests",
+    "references": [
+        "Improbable.Gdk.TestUtils.Editor",
+        "Improbable.Gdk.Tools"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": []
+}

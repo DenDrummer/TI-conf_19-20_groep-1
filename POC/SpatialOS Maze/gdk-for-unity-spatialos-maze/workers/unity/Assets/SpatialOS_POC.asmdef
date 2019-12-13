@@ -1,0 +1,28 @@
+{
+    "name": "SpatialOS_POC",
+    "references": [
+        "Improbable.Gdk.Core",
+        "Improbable.Gdk.Generated",
+        "Improbable.Gdk.Mobile",
+        "Improbable.Gdk.PlayerLifecycle",
+        "Unity.Entities",
+        "Unity.Entities.Hybrid",
+        "Unity.Mathematics"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [
+        "iOS",
+        "Lumin",
+        "macOSStandalone",
+        "PS4",
+        "Switch",
+        "tvOS",
+        "XboxOne"
+    ],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

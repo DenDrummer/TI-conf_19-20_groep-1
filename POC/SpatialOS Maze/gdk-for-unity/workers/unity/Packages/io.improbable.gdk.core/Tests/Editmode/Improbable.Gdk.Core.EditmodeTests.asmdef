@@ -1,0 +1,28 @@
+{
+    "name": "Improbable.Gdk.Core.EditmodeTests",
+    "references": [
+        "Improbable.Gdk.Core",
+        "Unity.Entities",
+        "Unity.Entities.Hybrid",
+        "Improbable.Gdk.TestUtils",
+        "Improbable.Gdk.TestUtils.Editor",
+        "Improbable.Gdk.Tools",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll",
+        "Improbable.Worker.CInterop.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": []
+}
