@@ -1,5 +1,6 @@
 ﻿using System;
 using Improbable.Gdk.Core;
+using Improbable.Gdk.GameObjectCreation;
 using Improbable.Gdk.PlayerLifecycle;
 using UnityEngine;
 
@@ -42,6 +43,7 @@ namespace SpatialOS_POC
         protected override void HandleWorkerConnectionEstablished()
         {
             PlayerLifecycleHelper.AddClientSystems(Worker.World);
+            GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
         }
     }
 }

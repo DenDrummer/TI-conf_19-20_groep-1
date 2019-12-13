@@ -3,6 +3,7 @@ using Improbable.Gdk.Core;
 using Improbable.Gdk.PlayerLifecycle;
 using Improbable.Worker.CInterop;
 using UnityEngine;
+using Improbable.Gdk.GameObjectCreation;
 
 namespace SpatialOS_POC
 {
@@ -41,6 +42,7 @@ namespace SpatialOS_POC
         {
             Worker.World.GetOrCreateSystem<MetricSendSystem>();
             PlayerLifecycleHelper.AddServerSystems(Worker.World);
+            GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
         }
     }
 }
