@@ -41,14 +41,18 @@ public class MoveRequestHandler : MonoBehaviour
         {
             switch (touchCount)
             {
+                case 0:
+                    // do nothing
+                    break;
+
                 case 1:
                     TouchOne();
-                break;
+                    break;
 
-                case 2:
                 default:
+                    //including case 2
                     TouchMore();
-                break;
+                    break;
             }
         }
     }
