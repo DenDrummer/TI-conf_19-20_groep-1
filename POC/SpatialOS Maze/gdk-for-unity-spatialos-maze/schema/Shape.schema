@@ -1,0 +1,18 @@
+package be.kdg.spatialos;
+
+type MoveRequest {}
+type MoveResponse {}
+
+type EditRequest {}
+type EditResponse {}
+
+component Shape 
+{
+    id = 4001;
+    improbable.Vector3f position = 1;
+    improbable.Vector3f rotation = 2;
+    improbable.Vector3f scale = 3;
+
+    command MoveResponse move(MoveRequest);
+    command EditResponse edit(EditRequest);
+}
