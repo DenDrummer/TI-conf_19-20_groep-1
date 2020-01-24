@@ -1,5 +1,6 @@
 using System;
 using Improbable.Gdk.Core;
+using Improbable.Gdk.GameObjectCreation;
 using Improbable.Gdk.Mobile;
 using Improbable.Gdk.PlayerLifecycle;
 using UnityEngine;
@@ -45,6 +46,8 @@ namespace SpatialOS_POC
         protected override void HandleWorkerConnectionEstablished()
         {
             PlayerLifecycleHelper.AddClientSystems(Worker.World);
+            // We'll probably have to enable this ~Jorden
+            //GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
         }
 
         public Option<string> GetReceptionistHostIp()
