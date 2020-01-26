@@ -6,6 +6,12 @@ type MoveResponse {}
 type EditRequest {}
 type EditResponse {}
 
+type SelectRequest {}
+type SelectResponse {}
+
+type DeselectRequest {}
+type DeselectResponse {}
+
 component Shape 
 {
     id = 4001;
@@ -15,4 +21,13 @@ component Shape
 
     command MoveResponse move(MoveRequest);
     command EditResponse edit(EditRequest);
+}
+
+component owner_id
+{
+    id = 4002;
+    EntityId owner_id = 1;
+
+    command SelectResponse select(SelectRequest);
+    command DeselectResponse deselect(DeselectRequest);
 }
