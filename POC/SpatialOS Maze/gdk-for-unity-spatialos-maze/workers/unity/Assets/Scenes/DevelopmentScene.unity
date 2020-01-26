@@ -349,3 +349,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 160a9a4e2c1d16a4a883f915c10498a0, type: 3}
+--- !u!1001 &3517078782550370419
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5480273684808314269, guid: a25b3adf2f36b994cb4e73e5cd218cbf,
+        type: 3}
+      propertyPath: m_Name
+      value: Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127911995967023917, guid: a25b3adf2f36b994cb4e73e5cd218cbf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127911995967023917, guid: a25b3adf2f36b994cb4e73e5cd218cbf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127911995967023917, guid: a25b3adf2f36b994cb4e73e5cd218cbf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127911995967023917, guid: a25b3adf2f36b994cb4e73e5cd218cbf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a25b3adf2f36b994cb4e73e5cd218cbf, type: 3}
