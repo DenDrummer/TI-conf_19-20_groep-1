@@ -43,7 +43,11 @@ namespace SpatialOS_POC
         protected override void HandleWorkerConnectionEstablished()
         {
             PlayerLifecycleHelper.AddClientSystems(Worker.World);
-            GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
+
+            IEntityGameObjectCreator fallbackCreator = new GameObjectCreatorFromMetadata(Worker.WorkerType, Worker.Origin, Worker.LogDispatcher);
+            IEntityGameObjectCreator customCreator = new PlayerGameObjectCreator(fallbackCreator, Worker.World, Worker.WorkerType);
+
+            GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World, customCreator);
         }
     }
 }
