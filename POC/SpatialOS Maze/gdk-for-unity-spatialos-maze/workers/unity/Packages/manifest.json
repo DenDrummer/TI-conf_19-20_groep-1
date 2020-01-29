@@ -19,7 +19,7 @@
     "io.improbable.gdk.playerlifecycle": "0.3.1",
     "io.improbable.gdk.testutils": "0.3.1",
     "io.improbable.gdk.tools": "0.3.1",
-    "io.improbable.gdk.transformsynchronization": "0.3.1",
+    "io.improbable.gdk.transformsynchronization": "0.3.2",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
     "com.unity.modules.assetbundle": "1.0.0",
