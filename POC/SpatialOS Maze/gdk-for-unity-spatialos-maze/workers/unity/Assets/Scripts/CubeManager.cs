@@ -12,16 +12,21 @@ public class CubeManager : MonoBehaviour
     [Require] private WorldCommandSender commandSender;
 
     public GameObject cubePrefab;
-    static private CubeManager instance = null;
-    private Queue<Player> playerQueue = new Queue<Player>();
+    private static CubeManager instance;
+    private Queue<Player> playerQueue;
+
+    private CubeManager()
+    {
+        playerQueue = new Queue<Player>();
+    }
 
     static public CubeManager GetCubeManager()
     {
-        if(instance == null)
+        if(CubeManager.instance == null)
         {
-            instance = new CubeManager();
+            CubeManager.instance = new CubeManager();
         }
-        return instance;
+        return CubeManager.instance;
     }
 
     private EntityTemplate CreateCubeEntityTemplate()
@@ -32,6 +37,7 @@ public class CubeManager : MonoBehaviour
 
     public void CreateCubeEntity(Player player)
 	{
+        var test = GetCubeManager();
         //TODO: If wrong cube despawns, blame the Queue
         playerQueue.Enqueue(player);
         var exampleEntity = CreateCubeEntityTemplate();

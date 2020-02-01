@@ -43,11 +43,10 @@ public class PlayerGameObjectCreator : IEntityGameObjectCreator
 
             Player.players.Add(player);
 
-            CubeManager.GetCubeManager().CreateCubeEntity(player);
-
             player.PlayerEntityId = entity.SpatialOSEntityId;
-
             linker.LinkGameObjectToSpatialOSEntity(entity.SpatialOSEntityId, playerGameObject);
+
+            CubeManager.GetCubeManager().CreateCubeEntity(player);
         }
         else
         {
