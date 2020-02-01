@@ -31,8 +31,7 @@ public class PlayerGameObjectCreator : IEntityGameObjectCreator
         Metadata.Component metadata = entity.GetComponent<Metadata.Component>();
         bool isPlayer = metadata.EntityType.Equals("Player");
         bool hasAuthority = PlayerLifecycleHelper.IsOwningWorker(entity.SpatialOSEntityId, _world);
-
-        // TODO: check if it is a player
+        
         if (isPlayer && hasAuthority)
         {
             string pathToPrefab = $"Prefabs/{_workerType}/Authoratative/Player";

@@ -6,7 +6,8 @@
         "Improbable.Gdk.Core",
         "Improbable.Gdk.Generated",
         "Unity.Entities",
-        "Improbable.Gdk.TransformSynchronization"
+        "Improbable.Gdk.TransformSynchronization",
+        "Improbable.Gdk.GameObjectCreation"
     ],
     "includePlatforms": [
         "Editor"

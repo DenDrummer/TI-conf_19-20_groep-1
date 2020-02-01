@@ -1,0 +1,10 @@
+package be.kdg.spatialos_maze;
+
+import "improbable/standard_library.schema";
+
+component PlayerTransform
+{
+    id = 4000;
+    improbable.Coordinates position = 1;
+    improbable.Coordinates rotation = 2;
+}

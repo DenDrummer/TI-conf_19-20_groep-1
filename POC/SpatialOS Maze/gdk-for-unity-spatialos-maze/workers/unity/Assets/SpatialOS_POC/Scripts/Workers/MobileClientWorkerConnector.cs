@@ -1,6 +1,5 @@
 using System;
 using Improbable.Gdk.Core;
-using Improbable.Gdk.GameObjectCreation;
 using Improbable.Gdk.Mobile;
 using Improbable.Gdk.PlayerLifecycle;
 using UnityEngine;
@@ -9,9 +8,8 @@ namespace SpatialOS_POC
 {
     public class MobileClientWorkerConnector : WorkerConnector, MobileConnectionFlowInitializer.IMobileSettingsProvider
     {
-#pragma warning disable 649
-        [SerializeField] private string ipAddress;
-#pragma warning restore 649
+        [SerializeField]
+        private string ipAddress;
 
         public const string WorkerType = "MobileClient";
 
@@ -46,8 +44,9 @@ namespace SpatialOS_POC
         protected override void HandleWorkerConnectionEstablished()
         {
             PlayerLifecycleHelper.AddClientSystems(Worker.World);
-            // We'll probably have to enable this ~Jorden
+            // TODO: We'll probably have to enable these ~Jorden
             //GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
+            //TransformSynchronizationHelper.AddClientSystems(Worker.World);
         }
 
         public Option<string> GetReceptionistHostIp()

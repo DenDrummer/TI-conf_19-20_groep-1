@@ -2,6 +2,7 @@
 using Improbable.Gdk.Core;
 using Improbable.Gdk.GameObjectCreation;
 using Improbable.Gdk.PlayerLifecycle;
+using Improbable.Gdk.TransformSynchronization;
 using UnityEngine;
 
 namespace SpatialOS_POC
@@ -43,6 +44,7 @@ namespace SpatialOS_POC
         protected override void HandleWorkerConnectionEstablished()
         {
             PlayerLifecycleHelper.AddClientSystems(Worker.World);
+            TransformSynchronizationHelper.AddClientSystems(Worker.World);
 
             IEntityGameObjectCreator fallbackCreator = new GameObjectCreatorFromMetadata(Worker.WorkerType, Worker.Origin, Worker.LogDispatcher);
             IEntityGameObjectCreator customCreator = new PlayerGameObjectCreator(fallbackCreator, Worker.World, Worker.WorkerType);

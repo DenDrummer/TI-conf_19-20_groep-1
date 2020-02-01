@@ -44,7 +44,7 @@ namespace SpatialOS_POC
             Worker.World.GetOrCreateSystem<MetricSendSystem>();
             PlayerLifecycleHelper.AddServerSystems(Worker.World);
             GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
-            //TransformSynchronizationHelper.AddServerSystems(Worker.World);
+            TransformSynchronizationHelper.AddServerSystems(Worker.World);
         }
     }
 }
