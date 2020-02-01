@@ -31,7 +31,7 @@ public class CubeGameObjectCreator : IEntityGameObjectCreator
         // TODO: check if it is a Cube
         if (isCube)
         {
-            string pathToPrefab = $"Prefabs/{_workerType}/Common/Player";
+            string pathToPrefab = $"Prefabs/{_workerType}/Common/Cube";
             Object prefab = Resources.Load(pathToPrefab);
             GameObject cubeGameObject = (GameObject)Object.Instantiate(prefab);
 

@@ -39,17 +39,27 @@ public class PlayerGameObjectCreator : IEntityGameObjectCreator
             Object prefab = Resources.Load(pathToPrefab);
             GameObject playerGameObject = (GameObject)Object.Instantiate(prefab);
 
+            var player = playerGameObject.GetComponent<Player>();
+
+            Player.players.Add(player);
+
+            CubeManager.GetCubeManager().CreateCubeEntity(player);
+
+            player.PlayerEntityId = entity.SpatialOSEntityId;
+
             linker.LinkGameObjectToSpatialOSEntity(entity.SpatialOSEntityId, playerGameObject);
         }
         else
         {
             _fallbackCreator.OnEntityCreated(entity, linker);
         }
-
+        
     }
 
     public void OnEntityRemoved(EntityId entityId)
-    {
+    { 
+        var cubeEntityID = Player.players.Find(p => p.PlayerEntityId == entityId).CubeEntityId;
+        CubeManager.GetCubeManager().DeleteEntity(cubeEntityID);
         _fallbackCreator.OnEntityRemoved(entityId);
     }
 }

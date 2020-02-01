@@ -24,16 +24,15 @@ namespace SpatialOS_POC.Scripts.Config
             return template;
         }
 
-        public static EntityTemplate CreateCubeEntityTemplate(string workerId, byte[] serializedArguments)
+        public static EntityTemplate CreateCubeEntityTemplate()
         {
-            var clientAttribute = EntityTemplate.GetWorkerAccessAttribute(workerId);
             var serverAttribute = UnityGameLogicConnector.WorkerType;
 
             var template = new EntityTemplate();
-            template.AddComponent(new Position.Snapshot(), clientAttribute);
+            template.AddComponent(new Position.Snapshot(), serverAttribute);
             template.AddComponent(new Metadata.Snapshot("Cube"), serverAttribute);
 
-            //TransformSynchronizationHelper.AddTransformSynchronizationComponents(template, serverAttribute);
+            TransformSynchronizationHelper.AddTransformSynchronizationComponents(template, serverAttribute);
 
             template.SetReadAccess(UnityGameLogicConnector.WorkerType, UnityClientConnector.WorkerType, MobileClientWorkerConnector.WorkerType, serverAttribute);
             template.SetComponentWriteAccess(EntityAcl.ComponentId, serverAttribute);

@@ -1,14 +1,63 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Improbable.Gdk.Core;
+using Improbable.Gdk.Core.Commands;
+using Improbable.Gdk.Subscriptions;
+using SpatialOS_POC.Scripts.Config;
+using Improbable.Worker.CInterop;
 
 public class CubeManager : MonoBehaviour
 {
-    Vector3 position = new Vector3();
-    Quaternion rotation = new Quaternion();
-    Vector3 scale = new Vector3();
+    [Require] private WorldCommandSender commandSender;
 
+    public GameObject cubePrefab;
+    static private CubeManager instance = null;
+    private Queue<Player> playerQueue = new Queue<Player>();
 
+    static public CubeManager GetCubeManager()
+    {
+        if(instance == null)
+        {
+            instance = new CubeManager();
+        }
+        return instance;
+    }
+
+    private EntityTemplate CreateCubeEntityTemplate()
+	{
+        var template = EntityTemplates.CreateCubeEntityTemplate();
+        return template;
+    }
+
+    public void CreateCubeEntity(Player player)
+	{
+        //TODO: If wrong cube despawns, blame the Queue
+        playerQueue.Enqueue(player);
+        var exampleEntity = CreateCubeEntityTemplate();
+	    var request = new WorldCommands.CreateEntity.Request(exampleEntity);
+	    commandSender.SendCreateEntityCommand(request, OnCreateEntityResponse);
+	}
+
+    private void OnCreateEntityResponse(WorldCommands.CreateEntity.ReceivedResponse response)
+    {
+        if (response.StatusCode == StatusCode.Success)
+        {
+            var createdEntityId = response.EntityId.Value;
+            // handle success
+            Player player = playerQueue.Dequeue();
+            player.CubeEntityId = createdEntityId;
+
+            Instantiate(cubePrefab, 
+                player.gameObject.transform.position + new Vector3(0, 0, 2), 
+                Quaternion.identity);
+        }
+        else
+        {
+            // handle failure
+            Debug.Log($"CubeCreation: {response.StatusCode} :')");
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -16,11 +65,28 @@ public class CubeManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void Update()
     {
-        gameObject.transform.position = position;
-        gameObject.transform.rotation = rotation;
-        gameObject.transform.localScale = scale;
+
+	}
+
+    public void DeleteEntity(EntityId entityId)
+    {
+	    var request = new WorldCommands.DeleteEntity.Request(entityId);
+	    commandSender.SendDeleteEntityCommand(request, OnDeleteEntityResponse);
     }
+	 
+	private void OnDeleteEntityResponse(WorldCommands.DeleteEntity.ReceivedResponse response)
+	{
+	    if (response.StatusCode == StatusCode.Success)
+	    {
+	        // handle success
+
+	    }
+	    else
+	    {
+	        // handle failure
+	    }
+	}
 }
