@@ -44,7 +44,7 @@ namespace SpatialOS_POC
         protected override void HandleWorkerConnectionEstablished()
         {
             PlayerLifecycleHelper.AddClientSystems(Worker.World);
-            // TODO: We'll probably have to enable these ~Jorden
+            // TODO: We'll probably have to enable these once we start building for mobile ~Jorden
             //GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
             //TransformSynchronizationHelper.AddClientSystems(Worker.World);
         }
