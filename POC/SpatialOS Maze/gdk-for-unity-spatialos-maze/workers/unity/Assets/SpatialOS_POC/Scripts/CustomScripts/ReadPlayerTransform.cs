@@ -1,7 +1,5 @@
 ﻿using Be.Kdg.SpatialosMaze;
 using Improbable.Gdk.Subscriptions;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ReadPlayerTransform : MonoBehaviour

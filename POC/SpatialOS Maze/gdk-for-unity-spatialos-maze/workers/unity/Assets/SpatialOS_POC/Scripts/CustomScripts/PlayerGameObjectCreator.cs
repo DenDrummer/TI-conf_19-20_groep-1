@@ -3,7 +3,6 @@ using Improbable.Gdk.Core;
 using Improbable.Gdk.GameObjectCreation;
 using Improbable.Gdk.PlayerLifecycle;
 using Improbable.Gdk.Subscriptions;
-using Improbable.Gdk.TransformSynchronization;
 using Unity.Entities;
 using UnityEngine;
 
@@ -23,7 +22,9 @@ public class PlayerGameObjectCreator : IEntityGameObjectCreator
         _workerType = workerType;
     }
 
-    public void OnEntityCreated(SpatialOSEntity entity, EntityGameObjectLinker linker)
+    public void OnEntityCreated(
+        SpatialOSEntity entity,
+        EntityGameObjectLinker linker)
     {
         if (!entity.HasComponent<Metadata.Component>())
         {
@@ -32,7 +33,7 @@ public class PlayerGameObjectCreator : IEntityGameObjectCreator
         Metadata.Component metadata = entity.GetComponent<Metadata.Component>();
         bool isPlayer = metadata.EntityType.Equals("Player");
         bool hasAuthority = PlayerLifecycleHelper.IsOwningWorker(entity.SpatialOSEntityId, _world);
-        
+
         if (isPlayer && hasAuthority)
         {
             string pathToPrefab = $"Prefabs/{_workerType}/Authoratative/Player";

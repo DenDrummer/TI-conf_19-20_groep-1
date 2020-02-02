@@ -1,8 +1,6 @@
 ﻿using Be.Kdg.SpatialosMaze;
 using Improbable;
 using Improbable.Gdk.Subscriptions;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WritePlayerTransform : MonoBehaviour
