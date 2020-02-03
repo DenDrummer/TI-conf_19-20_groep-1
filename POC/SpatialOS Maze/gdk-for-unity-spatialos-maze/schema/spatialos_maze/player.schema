@@ -1,0 +1,7 @@
+package be.kdg.spatialos_maze;
+
+component Player
+{
+    id = 4001;
+    string name = 1;
+}

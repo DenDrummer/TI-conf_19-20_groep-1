@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AssemblyConfig:
     ProjectName: beta_magnesium_lactose_613
-    AssemblyName: beta_magnesium_lactose_613_0202_2113
+    AssemblyName: beta_magnesium_lactose_613_0203_2240
     ShouldForceUpload: 0
   DeploymentConfigs:
   - ProjectName: beta_magnesium_lactose_613
-    AssemblyName: beta_magnesium_lactose_613_0202_2113
+    AssemblyName: beta_magnesium_lactose_613_0203_2240
     Deployment:
       Name: spatialos_maze
       SnapshotPath: snapshots/default.snapshot

@@ -6,25 +6,16 @@
       "snapshotWritePeriodSeconds": 0
     },
     "dimensions": {
-      "xMeters": 1000,
-      "zMeters": 1000
+      "xMeters": 5000,
+      "zMeters": 5000
     }
   },
   "load_balancing": {
     "layer_configurations": [
       {
         "layer": "UnityGameLogic",
-        "points_of_interest": {
-          "num_workers": 1,
-          "points": [
-            {
-              "x": 0,
-              "z": 0
-            }
-          ]
-        },
-        "options": {
-          "manual_worker_connection_only": true
+        "hex_grid": {
+          "num_workers": 2
         }
       }
     ]
