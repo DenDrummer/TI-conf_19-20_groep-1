@@ -1,0 +1,16 @@
+package be.kdg.spatialos_maze;
+
+import "improbable/standard_library.schema";
+
+component Cube
+{
+    id = 4002;
+
+    string workerid = 1;
+
+    string text = 2;
+
+    improbable.Coordinates position = 3;
+    improbable.Coordinates rotation = 4;
+    improbable.Coordinates scale = 5;
+}

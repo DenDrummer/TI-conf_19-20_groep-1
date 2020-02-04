@@ -34,6 +34,7 @@ namespace SpatialOS_POC.Editor
             var snapshot = new Snapshot();
 
             AddPlayerSpawner(snapshot);
+            AddCubes(snapshot);
             return snapshot;
         }
 
@@ -54,6 +55,13 @@ namespace SpatialOS_POC.Editor
             template.SetComponentWriteAccess(EntityAcl.ComponentId, serverAttribute);
 
             snapshot.AddEntity(template);
+        }
+
+        private static void AddCubes(Snapshot snapshot)
+        {
+            var cube = SpatialOS_POC.Scripts.Config.EntityTemplates.CreateCubeEntityTemplate("-1");
+
+            snapshot.AddEntity(cube);
         }
     }
 }

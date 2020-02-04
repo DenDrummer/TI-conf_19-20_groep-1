@@ -27,21 +27,29 @@ namespace SpatialOS_POC.Scripts.Config
             return template;
         }
 
-        public static EntityTemplate CreateCubeEntityTemplate(string workerId, byte[] serializedArguments)
+        public static EntityTemplate CreateCubeEntityTemplate(string workerId)
         {
             var clientAttribute = EntityTemplate.GetWorkerAccessAttribute(workerId);
             var serverAttribute = UnityGameLogicConnector.WorkerType;
 
-            var template = new EntityTemplate();
-            template.AddComponent(new Position.Snapshot(), clientAttribute);
-            template.AddComponent(new Metadata.Snapshot("Cube"), serverAttribute);
+            var entityTemplate = new EntityTemplate();
+            entityTemplate.AddComponent(new Position.Snapshot(), clientAttribute);
+            entityTemplate.AddComponent(new Metadata.Snapshot("Cube"), serverAttribute);
+            entityTemplate.AddComponent(new Persistence.Snapshot(), serverAttribute);
+            entityTemplate.AddComponent(new Cube.Snapshot(
+                    workerId, "", 
+                    new Coordinates(0d, 1d, 2d), 
+                    new Coordinates(0d, 0d, 0d), 
+                    new Coordinates(0.5d, 0.5d, 0.5d)
+                ), clientAttribute);
 
-            //TransformSynchronizationHelper.AddTransformSynchronizationComponents(template, serverAttribute);
+            entityTemplate.SetReadAccess(UnityClientConnector.WorkerType, 
+                MobileClientWorkerConnector.WorkerType, 
+                serverAttribute);
+            entityTemplate.SetComponentWriteAccess(EntityAcl.ComponentId, clientAttribute);
+            entityTemplate.SetComponentWriteAccess(EntityAcl.ComponentId, serverAttribute);
 
-            template.SetReadAccess(UnityGameLogicConnector.WorkerType, UnityClientConnector.WorkerType, MobileClientWorkerConnector.WorkerType, serverAttribute);
-            template.SetComponentWriteAccess(EntityAcl.ComponentId, serverAttribute);
-
-            return template;
+            return entityTemplate;
         }
     }
 }
