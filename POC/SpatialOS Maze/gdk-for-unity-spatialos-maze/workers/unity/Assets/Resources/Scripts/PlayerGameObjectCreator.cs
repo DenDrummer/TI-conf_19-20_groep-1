@@ -12,6 +12,8 @@ public class PlayerGameObjectCreator : IEntityGameObjectCreator
     private readonly World _world;
     private readonly string _workerType;
 
+    private CubeManager cubeManager = new CubeManager();
+
     public PlayerGameObjectCreator(
         IEntityGameObjectCreator fallbackCreator,
         World world,
@@ -46,7 +48,7 @@ public class PlayerGameObjectCreator : IEntityGameObjectCreator
             player.PlayerEntityId = entity.SpatialOSEntityId;
             linker.LinkGameObjectToSpatialOSEntity(entity.SpatialOSEntityId, playerGameObject);
 
-            CubeManager.GetCubeManager().CreateCubeEntity(player);
+            cubeManager.CreateCubeEntity(player);
         }
         else
         {
@@ -58,7 +60,7 @@ public class PlayerGameObjectCreator : IEntityGameObjectCreator
     public void OnEntityRemoved(EntityId entityId)
     { 
         var cubeEntityID = Player.players.Find(p => p.PlayerEntityId == entityId).CubeEntityId;
-        CubeManager.GetCubeManager().DeleteEntity(cubeEntityID);
+        cubeManager.DeleteEntity(cubeEntityID);
         _fallbackCreator.OnEntityRemoved(entityId);
     }
 }

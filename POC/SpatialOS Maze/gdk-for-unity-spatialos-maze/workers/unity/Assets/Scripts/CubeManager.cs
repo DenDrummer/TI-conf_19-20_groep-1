@@ -7,26 +7,30 @@ using Improbable.Gdk.Subscriptions;
 using SpatialOS_POC.Scripts.Config;
 using Improbable.Worker.CInterop;
 
-public class CubeManager : MonoBehaviour
+public class CubeManager
 {
     [Require] private WorldCommandSender commandSender;
 
-    public GameObject cubePrefab;
-    private static CubeManager instance;
-    private Queue<Player> playerQueue;
+    public static GameObject cubePrefab;
 
-    private CubeManager()
+    public Cube cube;
+
+    static private Queue<Player> playerQueue = new Queue<Player>();
+
+    public CubeManager()
+    { }
+    public CubeManager(Cube c)
     {
-        playerQueue = new Queue<Player>();
+        cube = c;
     }
 
-    static public CubeManager GetCubeManager()
+
+    public void Awake()
     {
-        if(CubeManager.instance == null)
+        if(cube.cubePrefab != null)
         {
-            CubeManager.instance = new CubeManager();
+            CubeManager.cubePrefab = cube.cubePrefab;
         }
-        return CubeManager.instance;
     }
 
     private EntityTemplate CreateCubeEntityTemplate()
@@ -37,8 +41,6 @@ public class CubeManager : MonoBehaviour
 
     public void CreateCubeEntity(Player player)
 	{
-        var test = GetCubeManager();
-        //TODO: If wrong cube despawns, blame the Queue
         playerQueue.Enqueue(player);
         var exampleEntity = CreateCubeEntityTemplate();
 	    var request = new WorldCommands.CreateEntity.Request(exampleEntity);
@@ -54,7 +56,7 @@ public class CubeManager : MonoBehaviour
             Player player = playerQueue.Dequeue();
             player.CubeEntityId = createdEntityId;
 
-            Instantiate(cubePrefab, 
+            cube.Instantiate(cubePrefab, 
                 player.gameObject.transform.position + new Vector3(0, 0, 2), 
                 Quaternion.identity);
         }
