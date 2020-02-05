@@ -32,6 +32,7 @@ public class ReadPlayer : MonoBehaviour
                 {
                     Material mat = mats.Find(m => m.name.Equals(exampleName));
                     myRenderer.material = mat;
+                    
                 }
             }
         }
