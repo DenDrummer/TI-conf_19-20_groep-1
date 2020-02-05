@@ -1,4 +1,4 @@
-﻿using Be.Kdg.SpatialosMaze;
+﻿using Be.Kdg.SpatialosMaze.PlayerTransform;
 using Improbable;
 using Improbable.Gdk.Subscriptions;
 using UnityEngine;
@@ -15,6 +15,7 @@ public class WritePlayerTransform : MonoBehaviour
             Position = Coordinates.FromUnityVector(transform.position),
             Rotation = Coordinates.FromUnityVector(transform.rotation.eulerAngles)            
         };
+
         _writer.SendUpdate(update);
     }
 }

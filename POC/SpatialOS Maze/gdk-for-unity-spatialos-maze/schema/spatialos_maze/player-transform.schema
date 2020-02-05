@@ -1,4 +1,4 @@
-package be.kdg.spatialos_maze;
+package be.kdg.spatialos_maze.player_transform;
 
 import "improbable/standard_library.schema";
 

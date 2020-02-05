@@ -1,4 +1,5 @@
-using Be.Kdg.SpatialosMaze;
+using Be.Kdg.SpatialosMaze.Player;
+using Be.Kdg.SpatialosMaze.PlayerTransform;
 using Improbable;
 using Improbable.Gdk.Core;
 using Improbable.Gdk.PlayerLifecycle;
@@ -17,6 +18,7 @@ namespace SpatialOS_POC.Scripts.Config
             template.AddComponent(new Position.Snapshot(), clientAttribute);
             template.AddComponent(new Metadata.Snapshot("Player"), serverAttribute);
             template.AddComponent(new PlayerTransform.Snapshot(), clientAttribute);
+            template.AddComponent(new Player.Snapshot(), clientAttribute);
 
             TransformSynchronizationHelper.AddTransformSynchronizationComponents(template, clientAttribute);
             PlayerLifecycleHelper.AddPlayerLifecycleComponents(template, workerId, serverAttribute);

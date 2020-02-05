@@ -1,4 +1,4 @@
-﻿using Be.Kdg.SpatialosMaze;
+﻿using Be.Kdg.SpatialosMaze.PlayerTransform;
 using Improbable.Gdk.Subscriptions;
 using UnityEngine;
 
