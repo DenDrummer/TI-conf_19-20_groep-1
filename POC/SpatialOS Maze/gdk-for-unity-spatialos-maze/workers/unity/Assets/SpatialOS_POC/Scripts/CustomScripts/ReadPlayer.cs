@@ -11,6 +11,9 @@ public class ReadPlayer : MonoBehaviour
     [Require]
     private PlayerReader _reader;
 
+    [SerializeField]
+    private Material defaultMaterial;
+
     private List<Material> mats = new List<Material>();
 
     [SerializeField]
@@ -42,6 +45,7 @@ public class ReadPlayer : MonoBehaviour
                     {
                         myRenderer.material = mat;
                     }
+                    else { myRenderer.material = defaultMaterial; }
                 }
             }
         }

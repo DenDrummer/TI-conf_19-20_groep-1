@@ -4,4 +4,5 @@ component Player
 {
     id = 4001;
     string name = 1;
+    string message = 2;
 }

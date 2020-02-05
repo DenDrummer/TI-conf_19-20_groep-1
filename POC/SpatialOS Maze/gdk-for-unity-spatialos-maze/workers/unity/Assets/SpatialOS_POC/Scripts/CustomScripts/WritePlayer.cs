@@ -36,4 +36,14 @@ public class WritePlayer : MonoBehaviour
 
         _writer.SendUpdate(update);
     }
+
+
+    public void ChangeMessage(InputField inputFieldComponent)
+    {
+        Player.Update update = new Player.Update
+        {
+            Message = inputFieldComponent.text
+        };
+        _writer.SendUpdate(update);
+    }
 }
