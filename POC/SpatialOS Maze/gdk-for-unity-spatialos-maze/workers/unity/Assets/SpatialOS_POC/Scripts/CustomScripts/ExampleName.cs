@@ -5,9 +5,14 @@
         Aardbei,
         Ananas,
         Appelsien,
+        Aubergine,
         Banaan,
+        Bloemkool,
+        Broccoli,
+        Druif,
         Kers,
         Komkommer,
+        Paprika,
         Peer,
         Tomaat
     }

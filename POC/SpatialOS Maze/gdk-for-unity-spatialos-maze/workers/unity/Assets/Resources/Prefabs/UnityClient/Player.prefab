@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   namePlate: {fileID: 898066237808245506}
+  myRenderer: {fileID: 0}
 --- !u!1 &2762351975264673839
 GameObject:
   m_ObjectHideFlags: 0

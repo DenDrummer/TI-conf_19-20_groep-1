@@ -48,7 +48,7 @@ namespace SpatialOS_POC
 
             IEntityGameObjectCreator fallbackCreator = new GameObjectCreatorFromMetadata(Worker.WorkerType, Worker.Origin, Worker.LogDispatcher);
             IEntityGameObjectCreator customCreator = new PlayerGameObjectCreator(fallbackCreator, Worker.World, Worker.WorkerType);
-
+            
             GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World, customCreator);
         }
     }

@@ -12,23 +12,26 @@ public class WritePlayer : MonoBehaviour
 
     [SerializeField]
     private Text namePlate;
+    [SerializeField]
+    private MeshRenderer myRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         string[] exampleNames = Enum.GetNames(typeof(ExampleName));
         System.Random r = new System.Random();
-        string username = (string)exampleNames.GetValue(r.Next(exampleNames.Length)) + r.Next(4);
-        namePlate.text = username;
-    }
+        string username = (string)exampleNames.GetValue(r.Next(exampleNames.Length));
+        string fullName = username + r.Next(10000);
+        namePlate.text = fullName;
+        Material mat = (Material)Resources.Load($"Materials/{username}Material");
+        if (mat != null)
+        {
+            myRenderer.material = mat;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
         Player.Update update = new Player.Update
         {
-            // TODO: generate random name/id or ask name (asking brings risk of trolls during demo) ~Jorden
-            Name = namePlate.text
+            Name = fullName
         };
 
         _writer.SendUpdate(update);
