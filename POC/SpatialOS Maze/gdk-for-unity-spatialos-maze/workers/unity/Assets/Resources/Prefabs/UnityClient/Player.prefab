@@ -74,8 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41428d92a18185f4a954458713f0f306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: 6d1929ce073b6074e9979937a3cd915e, type: 2}
   namePlate: {fileID: 898066237808245506}
+  message: {fileID: 2647748269399653869}
   myRenderer: {fileID: 7400113952760104693}
   mats:
   - {fileID: 2100000, guid: 6d39571e18981794085227cd78373716, type: 2}

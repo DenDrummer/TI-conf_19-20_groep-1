@@ -14,6 +14,8 @@ public class ReadPlayer : MonoBehaviour
     [SerializeField]
     private Text namePlate;
     [SerializeField]
+    private Text message;
+    [SerializeField]
     private MeshRenderer myRenderer;
     [SerializeField]
     private List<Material> mats;
@@ -34,5 +36,6 @@ public class ReadPlayer : MonoBehaviour
             }
         }
         namePlate.text = username;
+        message.text = _reader.Data.Message;
     }
 }
