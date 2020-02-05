@@ -12,23 +12,11 @@ public class ReadPlayer : MonoBehaviour
     private PlayerReader _reader;
 
     [SerializeField]
-    private Material defaultMaterial;
-
-    private List<Material> mats = new List<Material>();
-
-    [SerializeField]
     private Text namePlate;
     [SerializeField]
     private MeshRenderer myRenderer;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        foreach (string exampleName in Enum.GetNames(typeof(ExampleName)))
-        {
-            mats.Add((Material)Resources.Load($"Materials/{exampleName}Material"));
-        }
-    }
+    [SerializeField]
+    private List<Material> mats;
 
     // Update is called once per frame
     void Update()
@@ -40,12 +28,8 @@ public class ReadPlayer : MonoBehaviour
             {
                 if (mats.Count > 0)
                 {
-                    Material mat = mats.Find(m => m.name.StartsWith(exampleName));
-                    if (mat != null)
-                    {
-                        myRenderer.material = mat;
-                    }
-                    else { myRenderer.material = defaultMaterial; }
+                    Material mat = mats.Find(m => m.name.Equals(exampleName));
+                    myRenderer.material = mat;
                 }
             }
         }
