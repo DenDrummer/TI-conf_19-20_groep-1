@@ -29,11 +29,10 @@ namespace SpatialOS_POC.Scripts.Config
 
         public static EntityTemplate CreateCubeEntityTemplate(string workerId)
         {
-            var clientAttribute = EntityTemplate.GetWorkerAccessAttribute(workerId);
             var serverAttribute = UnityGameLogicConnector.WorkerType;
 
             var entityTemplate = new EntityTemplate();
-            entityTemplate.AddComponent(new Position.Snapshot(), clientAttribute);
+            entityTemplate.AddComponent(new Position.Snapshot(), serverAttribute);
             entityTemplate.AddComponent(new Metadata.Snapshot("Cube"), serverAttribute);
             entityTemplate.AddComponent(new Persistence.Snapshot(), serverAttribute);
             entityTemplate.AddComponent(new Cube.Snapshot(
@@ -41,13 +40,14 @@ namespace SpatialOS_POC.Scripts.Config
                     new Coordinates(0d, 1d, 2d), 
                     new Coordinates(0d, 0d, 0d), 
                     new Coordinates(0.5d, 0.5d, 0.5d)
-                ), clientAttribute);
+                ), serverAttribute);
 
             entityTemplate.SetReadAccess(UnityClientConnector.WorkerType, 
                 MobileClientWorkerConnector.WorkerType, 
                 serverAttribute);
-            entityTemplate.SetComponentWriteAccess(EntityAcl.ComponentId, clientAttribute);
+            entityTemplate.SetComponentWriteAccess(EntityAcl.ComponentId, UnityClientConnector.WorkerType);
             entityTemplate.SetComponentWriteAccess(EntityAcl.ComponentId, serverAttribute);
+            entityTemplate.SetComponentWriteAccess(EntityAcl.ComponentId, MobileClientWorkerConnector.WorkerType);
 
             return entityTemplate;
         }
