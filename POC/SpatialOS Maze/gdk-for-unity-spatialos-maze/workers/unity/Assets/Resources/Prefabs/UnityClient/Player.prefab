@@ -75,7 +75,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   namePlate: {fileID: 898066237808245506}
-  myRenderer: {fileID: 0}
+  myRenderer: {fileID: 7400113952760104693}
+  mats:
+  - {fileID: 2100000, guid: 6d39571e18981794085227cd78373716, type: 2}
+  - {fileID: 2100000, guid: 4db6139fd731d16459c19182ac263c2b, type: 2}
+  - {fileID: 2100000, guid: 2960f77c721d17f4a997bf1040fcf302, type: 2}
+  - {fileID: 2100000, guid: ddedc2341fbc9db4e9f06bffcd0c668f, type: 2}
+  - {fileID: 2100000, guid: c2fe681d95eada64a8492c3e3c5eb901, type: 2}
 --- !u!1 &2762351975264673839
 GameObject:
   m_ObjectHideFlags: 0

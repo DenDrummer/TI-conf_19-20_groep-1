@@ -252,7 +252,7 @@ MonoBehaviour:
   m_WalkSpeed: 5
   m_RunSpeed: 10
   m_RunstepLenghten: 0.7
-  m_JumpSpeed: 8
+  m_JumpSpeed: 4
   m_StickToGroundForce: 10
   m_GravityMultiplier: 2
   m_MouseLook:
@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   namePlate: {fileID: 8485568167743474030}
-  myRenderer: {fileID: 0}
+  myRenderer: {fileID: 3826822582393180731}
 --- !u!1 &5818926718243663814
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +653,7 @@ Behaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5818926718243663814}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &6101678576053326211
 GameObject:
   m_ObjectHideFlags: 0
